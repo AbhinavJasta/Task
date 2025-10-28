@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Current Date and Time</h1>
+<p id="clock2"></p>
+<p id="clock"></p>
+
+<script>
+    
+    function Day(){
+        const now = new Date();
+        return now;
+    }
+    const years = Day().getFullYear();
+    const month = String(Day().getMonth() + 1).padStart(2, '0');
+    const day = String(Day().getDate()).padStart(2, '0');
+    document.getElementById('clock2').textContent += `${day}-${month}-${years}`;
+    Day();
+    function updateClock() {
+        const now = Day();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
+</body>
+</html>

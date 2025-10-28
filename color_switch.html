@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Switch</title>
+    <style>
+        body {
+            transition: background-color 0.5s;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        h1 {
+            text-align: center;
+            color: random();
+        }
+    </style>
+</head>
+<body>
+
+<h1>Color Switcher</h1>
+<br><br>
+<button onclick="switchColor()">Switch Color</button>
+
+<script>
+    function switchColor() {
+        document.body.style.backgroundColor = randomColor();
+    }
+
+    function randomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+
+</body>
+</html>
